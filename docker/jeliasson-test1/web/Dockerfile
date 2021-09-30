@@ -40,7 +40,7 @@ FROM nginx:alpine as runner
 COPY --from=builder /app/web/dist /usr/share/nginx/html
 
 # Copy nginx configuration
-COPY docker/jeliasson-test1/web/config/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY docker/jeliasson-test1/web/config/nginx.conf /etc/nginx/conf.d/default.conf
 
 # List files
 RUN ls -lA /usr/share/nginx/html
