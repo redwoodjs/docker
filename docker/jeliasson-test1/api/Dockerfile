@@ -1,12 +1,8 @@
-### START General copy pasta for all implementations
-LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
-### END of general copy pasta for all implementations
-
 ###########################################################################################
 # Runner: node
 ###########################################################################################
 
-FROM node:14 as runner
+FROM node:alpine-14 as runner
 
 # Node
 ARG NODE_ENV
@@ -42,3 +38,7 @@ EXPOSE 8911
 
 # Entrypoint to @redwoodjs/api-server binary
 ENTRYPOINT [ "yarn", "rw", "serve", "api", "--port", "8911", "--rootPath", "/api" ]
+
+### START General copy pasta for all implementations
+LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
+### END of general copy pasta for all implementations
