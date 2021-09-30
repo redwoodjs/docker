@@ -2,7 +2,7 @@
 # Runner: node
 ###########################################################################################
 
-FROM node:alpine-14 as runner
+FROM node:14-alpine as runner
 
 # Node
 ARG NODE_ENV

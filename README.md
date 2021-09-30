@@ -4,9 +4,9 @@ Repository to consolidate efforts on making a good Docker implementation for Red
 
 ## Implementations
 
-| Name            | API                 | Web                  | Description                                               | Maintainer     |
-| --------------- | ------------------- | -------------------- | --------------------------------------------------------- | -------------- |
-| jeliasson-test1 | `yarn rw serve api` | `nginx:alpine` image | A test implementation that builds api and web seperately. | Johan Eliasson |
+| Name            | API                 | Web                  | Description                                               | Maintainer     | Build Status                                                                                                                                                                                             |
+| --------------- | ------------------- | -------------------- | --------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| jeliasson-test1 | `yarn rw serve api` | `nginx:alpine` image | A test implementation that builds api and web seperately. | Johan Eliasson | [![jeliasson-test1](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-test1.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-test1.yml) |
 
 ## Development
 

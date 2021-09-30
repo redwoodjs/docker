@@ -2,7 +2,7 @@
 # Builder: node
 ###########################################################################################
 
-FROM node:14 as builder
+FROM node:14-alpine as builder
 
 # Node
 ARG NODE_ENV
