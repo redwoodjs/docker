@@ -1,24 +1,25 @@
 # Redwood
 
-> **WARNING:** RedwoodJS software has not reached a stable version 1.0 and should not be considered suitable for production use. In the "make it work; make it right; make it fast" paradigm, Redwood is in the later stages of the "make it work" phase.
+Repository to consolidate efforts on making a good Docker implementation for RedwoodJS
 
-## Getting Started
-- [Tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
+## Implementations
 
-### Setup
+| Name            | API                 | Web                  | Description                                               | Maintainer     |
+| --------------- | ------------------- | -------------------- | --------------------------------------------------------- | -------------- |
+| jeliasson-test1 | `yarn rw serve api` | `nginx:alpine` image | A test implementation that builds api and web seperately. | Johan Eliasson |
 
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
+## Development
 
-```terminal
-yarn install
+### Dockerfiles
+
+Add below `LABEL` to directly connect published Docker images to this repository.
+
+```Dockerfile
+### START General copy pasta for all implementations
+LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
+### END of general copy pasta for all implementations
 ```
 
-### Fire it up
+### CI-pipeline
 
-```terminal
-yarn redwood dev
-```
-
-Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`. 
+Feel free to copy and paste `.github/workflows/jeliasson-test1.yml` and we try to make out a common baseline.
