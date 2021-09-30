@@ -2,21 +2,11 @@ name: 'jeliasson-test1'
 
 on:
   push:
+
     # Only run on these branches
     branches:
       - jeliasson-test1
       - feat/initial-ci
-
-    # Only run on changes in the following paths
-    paths:
-      - '.github/workflows/jeliasson-test1.yml'
-      - 'api/**'
-      - 'web/**'
-      - 'babel.config.js'
-      - 'graphql.config.js'
-      - 'package.json'
-      - 'redwood.toml'
-      - 'yarn.lock'
 
 env:
 
