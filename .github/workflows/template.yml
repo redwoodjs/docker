@@ -1,0 +1,78 @@
+#
+# Template CI pipeline
+#
+# Copy this file and enable main branch (which is commented out in template)
+#
+
+name: 'jeliasson-nginx'
+
+on:
+  push:
+
+    # Only run on these branches
+    branches:
+      #- main
+      - template-branch
+
+    paths:
+
+      # Implementation specific
+      - '.github/workflows/template.yml'
+      - 'docker/template/**'
+
+      # Redwood specific
+      - 'api/**'
+      - 'web/**'
+      - 'babel.config.js'
+      - 'graphql.config.js'
+      - 'package.json'
+      - 'redwood.toml'
+      - 'yarn.lock'
+
+env:
+
+  # Environment variable
+  NODE_ENV: 'development'
+  RUNTIME_ENV: 'dev'
+
+  # Container Registry
+  IMAGE_PREFIX: template
+
+jobs:
+  #
+  # Build
+  #
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [api, web]
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Docker login
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: jeliasson
+          password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+
+      - name: Docker build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          context: .
+          file: ./docker/${{ env.IMAGE_PREFIX }}/${{ matrix.platform }}/Dockerfile
+          build-args: |
+            NODE_ENV=${{ env.NODE_ENV }}
+            RUNTIME_ENV=${{ env.RUNTIME_ENV }}
+          tags: |
+            ghcr.io/jeliasson/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
+            ghcr.io/jeliasson/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}

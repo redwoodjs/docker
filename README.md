@@ -1,24 +1,92 @@
 # Redwood
 
-> **WARNING:** RedwoodJS software has not reached a stable version 1.0 and should not be considered suitable for production use. In the "make it work; make it right; make it fast" paradigm, Redwood is in the later stages of the "make it work" phase.
+Repository to consolidate efforts on making a Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291).
 
-## Getting Started
-- [Tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
+## Implementations
 
-### Setup
+| Name                                | API                 | Web                  |
+| ----------------------------------- | ------------------- | -------------------- |
+| [jeliasson-nginx](#jeliasson-nginx) | `yarn rw serve api` | `nginx:alpine` image |
 
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
+### `jeliasson-nginx`
 
-```terminal
-yarn install
+**Meta**
+| | |
+| ----------- | --------------------------------------------------------- |
+| Name | `jeliasson-nginx` |
+| Description | A test implementation that builds api and web seperately. Will be renamed to something more suiting when building correctly. |
+| Workflow | [![jeliasson-nginx](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml) |
+| Maintainer | [Johan Eliasson](https://github.com/jeliasson) |
+
+**Packages**
+
+| Name | Runtime             |
+| ---- | ------------------- |
+| api  | `yarn rw serve api` |
+| web  | `nginx:alpine`      |
+
+**Benchmark**
+
+| Package | Build time | Image size |
+| ------- | ---------- | ---------- |
+| api     | `N/A`      | `N/A`      |
+| web     | `N/A`      | `N/A`      |
+
+**Suitable for**
+
+| Scenario                    | Development | Production |
+| --------------------------- | ----------- | ---------- |
+| Basic installation          | ❌          | ❌         |
+| Preferably w/ LB/proxy      | ❌          | ✅         |
+| High Availability           | ❌          | ✅         |
+| Separation of concern       | ❌          | ✅         |
+| Handles db migration & seed | ❌          | ❌         |
+| ...                         |             |            |
+
+**Test**
+
+```bash
+# Api
+docker run \
+      -it \
+      -p 8911:8911 \
+      ghcr.io/jeliasson/jeliasson-nginx-api-dev:latest
+
+# Web
+docker run \
+      -it \
+      -p 8910:8910 \
+      ghcr.io/jeliasson/jeliasson-nginx-web-dev:latest
 ```
 
-### Fire it up
+## Development
 
-```terminal
-yarn redwood dev
+Essentialy we create various test implementations under the [docker](docker) directory and create [workflows](.github/workflows) to build these. Once we find a suitable approach forward, we'll discuss where the final Dockerfiles ultimately end up after a `yarn rw setup docker` setup. 🚀
+
+### Dockerfiles
+
+Add below `LABEL` to bottom each Dockerfile to connect published Docker image to this repository.
+
+```Dockerfile
+### Connect image to repository
+LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
 ```
 
-Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`. 
+#### Images
+
+Published Docker images to GitHub Container Registry should preferably be named;
+
+- `<prefix>-api-dev` for api build with development as runtime env.
+- `<prefix>-web-dev` for web build with development as runtime env.
+- `<prefix>-both-dev` for api and web build with development as runtime env.
+- `<prefix>-api-prod` for api build with production as runtime env.
+- `<prefix>-web-prod` for web build with production as runtime env.
+- `<prefix>-both-prod` for api and web build with production as runtime env.
+
+e.g.
+
+- `jeliasson-nginx-web-dev`
+
+### CI
+
+Feel free to copy and paste `.github/workflows/template.yml` and we try to make out a common baseline. It should build and publish the image(s) to GitHub Container Registry (see template).
