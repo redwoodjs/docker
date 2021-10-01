@@ -1,12 +1,11 @@
-name: 'jeliasson-test1'
+name: 'template'
 
 on:
   push:
 
     # Only run on these branches
     branches:
-      - jeliasson-test1
-      - feat/initial-ci
+      - your-branch
 
 env:
 
@@ -26,7 +25,7 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 10
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         platform: [api, web]
     steps:
