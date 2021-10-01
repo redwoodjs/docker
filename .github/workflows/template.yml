@@ -1,3 +1,9 @@
+#
+# Template CI pipeline
+#
+# Copy this file and enable main branch (which is commented out in template)
+#
+
 name: 'jeliasson-nginx'
 
 on:
@@ -5,7 +11,7 @@ on:
 
     # Only run on these branches
     branches:
-      - main
+      #- main
       - template-branch
 
     paths:
