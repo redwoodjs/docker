@@ -43,7 +43,7 @@ Repository to consolidate efforts on making a good Docker implementation for Red
 
 ### Dockerfiles
 
-Add below `LABEL` to directly connect published Docker images to this repository.
+Add below `LABEL` to bottom each Dockerfile to connect published Docker image to this repository.
 
 ```Dockerfile
 ### START General copy pasta for all implementations
@@ -51,6 +51,23 @@ LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-doc
 ### END of general copy pasta for all implementations
 ```
 
+#### Images
+
+Published Docker images to GitHub Container Registry should preferably be named;
+
+* `<prefix>-api-dev` for api build with development as runtime env.
+* `<prefix>-web-dev` for web build with development as runtime env.
+* `<prefix>-both-dev` for api and web build with development as runtime env.
+* `<prefix>-api-prod` for api build with production as runtime env.
+* `<prefix>-web-prod` for web build with production as runtime env.
+* `<prefix>-both-prod` for api and web build with production as runtime env.
+
+e.g.
+
+* `jeliasson-test1-web-dev`
+
+
+
 ### CI
 
-Feel free to copy and paste `.github/workflows/template.yml` and we try to make out a common baseline.
+Feel free to copy and paste `.github/workflows/template.yml` and we try to make out a common baseline. It should build and publish the image(s) to GitHub Container Registry (see template).
