@@ -1,6 +1,6 @@
 # Redwood
 
-Repository to consolidate efforts on making a good Docker implementation for RedwoodJS
+Repository to consolidate efforts on making a Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291).
 
 ## Implementations
 
@@ -11,7 +11,7 @@ Repository to consolidate efforts on making a good Docker implementation for Red
 ### `jeliasson-nginx`
 
 **Meta**
-| . | . |
+| | |
 | ----------- | --------------------------------------------------------- |
 | Name | `jeliasson-nginx` |
 | Description | A test implementation that builds api and web seperately. Will be renamed to something more suiting when building correctly. |
@@ -20,24 +20,44 @@ Repository to consolidate efforts on making a good Docker implementation for Red
 
 **Packages**
 
-| Name |                     |
+| Name | Runtime             |
 | ---- | ------------------- |
 | api  | `yarn rw serve api` |
 | web  | `nginx:alpine`      |
 
 **Benchmark**
 
-| Package | Build time |
-| ------- | ---------- |
-| api     | `N/A`      |
-| web     | `N/A`      |
+| Package | Build time | Image size |
+| ------- | ---------- | ---------- |
+| api     | `N/A`      | `N/A`      |
+| web     | `N/A`      | `N/A`      |
 
 **Suitable for**
 
-| Scenario    | High Availability | Separation of concern |
-| ----------- | ----------------- | --------------------- |
-| Production  | ✅                | ✅                    |
-| Development | ❌                | ❌                    |
+| Scenario                    | Development | Production |
+| --------------------------- | ----------- | ---------- |
+| Basic installation          | ❌          | ❌         |
+| Preferably w/ LB/proxy      | ❌          | ✅         |
+| High Availability           | ❌          | ✅         |
+| Separation of concern       | ❌          | ✅         |
+| Handles db migration & seed | ❌          | ❌         |
+| ...                         |             |            |
+
+**Test**
+
+```bash
+# Api
+docker run \
+      -it \
+      -p 8911:8911 \
+      ghcr.io/jeliasson/jeliasson-nginx-api-dev:latest
+
+# Web
+docker run \
+      -it \
+      -p 8910:8910 \
+      ghcr.io/jeliasson/jeliasson-nginx-web-dev:latest
+```
 
 ## Development
 
@@ -48,27 +68,24 @@ Essentialy we create various test implementations under the [docker](docker) dir
 Add below `LABEL` to bottom each Dockerfile to connect published Docker image to this repository.
 
 ```Dockerfile
-### START General copy pasta for all implementations
+### Connect image to repository
 LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
-### END of general copy pasta for all implementations
 ```
 
 #### Images
 
 Published Docker images to GitHub Container Registry should preferably be named;
 
-* `<prefix>-api-dev` for api build with development as runtime env.
-* `<prefix>-web-dev` for web build with development as runtime env.
-* `<prefix>-both-dev` for api and web build with development as runtime env.
-* `<prefix>-api-prod` for api build with production as runtime env.
-* `<prefix>-web-prod` for web build with production as runtime env.
-* `<prefix>-both-prod` for api and web build with production as runtime env.
+- `<prefix>-api-dev` for api build with development as runtime env.
+- `<prefix>-web-dev` for web build with development as runtime env.
+- `<prefix>-both-dev` for api and web build with development as runtime env.
+- `<prefix>-api-prod` for api build with production as runtime env.
+- `<prefix>-web-prod` for web build with production as runtime env.
+- `<prefix>-both-prod` for api and web build with production as runtime env.
 
 e.g.
 
-* `jeliasson-nginx-web-dev`
-
-
+- `jeliasson-nginx-web-dev`
 
 ### CI
 

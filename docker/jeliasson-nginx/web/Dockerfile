@@ -48,6 +48,5 @@ RUN ls -lA /usr/share/nginx/html
 # Expose RedwoodJS web port
 EXPOSE 8910
 
-### START General copy pasta for all implementations
+### Connect image to repository
 LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
-### END of general copy pasta for all implementations
