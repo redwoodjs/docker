@@ -1,11 +1,11 @@
-name: 'jeliasson-test1'
+name: 'jeliasson-nginx'
 
 on:
   push:
 
     # Only run on these branches
     branches:
-      - jeliasson-test1
+      - jeliasson-nginx
       - feat/initial-ci
 
 env:
@@ -15,7 +15,7 @@ env:
   RUNTIME_ENV: 'dev'
 
   # Container Registry
-  CONTAINER_REGISTRY_IMAGE_PREFIX: jeliasson-test1
+  IMAGE_PREFIX: jeliasson-nginx
 
 jobs:
   #
@@ -48,10 +48,10 @@ jobs:
         with:
           push: true
           context: .
-          file: ./docker/jeliasson-test1/${{ matrix.platform }}/Dockerfile
+          file: ./docker/${{ env.IMAGE_PREFIX }}/${{ matrix.platform }}/Dockerfile
           build-args: |
             NODE_ENV=${{ env.NODE_ENV }}
             RUNTIME_ENV=${{ env.RUNTIME_ENV }}
           tags: |
-            ghcr.io/jeliasson/${{ env.CONTAINER_REGISTRY_IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
-            ghcr.io/jeliasson/${{ env.CONTAINER_REGISTRY_IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}
+            ghcr.io/jeliasson/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
+            ghcr.io/jeliasson/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}

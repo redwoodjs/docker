@@ -6,16 +6,16 @@ Repository to consolidate efforts on making a good Docker implementation for Red
 
 | Name                                | API                 | Web                  |
 | ----------------------------------- | ------------------- | -------------------- |
-| [jeliasson-test1](#jeliasson-test1) | `yarn rw serve api` | `nginx:alpine` image |
+| [jeliasson-nginx](#jeliasson-nginx) | `yarn rw serve api` | `nginx:alpine` image |
 
-### `jeliasson-test1`
+### `jeliasson-nginx`
 
 **Meta**
 | . | . |
 | ----------- | --------------------------------------------------------- |
-| Name | `jeliasson-test1` |
+| Name | `jeliasson-nginx` |
 | Description | A test implementation that builds api and web seperately. Will be renamed to something more suiting when building correctly. |
-| Workflow | [![jeliasson-test1](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-test1.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-test1.yml) |
+| Workflow | [![jeliasson-nginx](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml) |
 | Maintainer | [Johan Eliasson](https://github.com/jeliasson) |
 
 **Packages**
@@ -41,6 +41,8 @@ Repository to consolidate efforts on making a good Docker implementation for Red
 
 ## Development
 
+Essentialy we create various test implementations under the [docker](docker) directory and create [workflows](.github/workflows) to build these. Once we find a suitable approach forward, we'll discuss where the final Dockerfiles ultimately end up after a `yarn rw setup docker` setup. 🚀
+
 ### Dockerfiles
 
 Add below `LABEL` to bottom each Dockerfile to connect published Docker image to this repository.
@@ -64,7 +66,7 @@ Published Docker images to GitHub Container Registry should preferably be named;
 
 e.g.
 
-* `jeliasson-test1-web-dev`
+* `jeliasson-nginx-web-dev`
 
 
 
