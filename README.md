@@ -14,7 +14,7 @@ Repository to consolidate efforts on making a Docker implementation for RedwoodJ
 | | |
 | ----------- | --------------------------------------------------------- |
 | Name | `jeliasson-nginx` |
-| Description | A test implementation that builds api and web seperately. Will be renamed to something more suiting when building correctly. |
+| Description | A test implementation that builds api and web seperately. |
 | Workflow | [![jeliasson-nginx](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml) |
 | Maintainer | [Johan Eliasson](https://github.com/jeliasson) |
 
