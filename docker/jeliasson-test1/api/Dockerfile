@@ -24,6 +24,9 @@ COPY yarn.lock .
 # Install dependencies
 RUN yarn install --frozen-lockfile
 
+# Install additional dependencies (tracking realStandal)
+RUN yarn add react react-dom @redwoodjs/api-server @redwoodjs/internal
+
 # Build
 RUN yarn rw build api
 
