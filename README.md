@@ -1,6 +1,6 @@
-# Redwood
+# Redwood on Docker
 
-Repository to consolidate efforts on making a Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291).
+Repository to consolidate efforts on making a sweet Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291).
 
 ## Implementations
 
@@ -14,7 +14,7 @@ Repository to consolidate efforts on making a Docker implementation for RedwoodJ
 | | |
 | ----------- | --------------------------------------------------------- |
 | Name | `jeliasson-nginx` |
-| Description | A test implementation that builds api and web seperately. Will be renamed to something more suiting when building correctly. |
+| Description | A test implementation that builds api and web seperately. |
 | Workflow | [![jeliasson-nginx](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml) |
 | Maintainer | [Johan Eliasson](https://github.com/jeliasson) |
 
@@ -63,7 +63,7 @@ docker run \
 
 ## Development
 
-Essentialy we create various test implementations under the [docker](docker) directory and create [workflows](.github/workflows) to build these. Once we find a suitable approach forward, we'll discuss where the final Dockerfiles ultimately end up after a `yarn rw setup docker` setup. 🚀
+Essentialy we create various test implementations under the [docker](docker) directory and create [workflows](.github/workflows) to build these. Once we find a suitable approach forward, we'll discuss where the final Dockerfiles ultimately end up after a `yarn rw setup docker` (or what we end up with) setup. 🚀
 
 ### Dockerfiles
 
