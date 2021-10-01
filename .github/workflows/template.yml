@@ -6,13 +6,13 @@ on:
     # Only run on these branches
     branches:
       - main
-      - jeliasson-nginx
+      - template-branch
 
     paths:
 
       # Implementation specific
-      - '.github/workflows/jeliasson-nginx.yml'
-      - 'docker/jeliasson-nginx/**'
+      - '.github/workflows/template.yml'
+      - 'docker/template/**'
 
       # Redwood specific
       - 'api/**'
@@ -30,7 +30,7 @@ env:
   RUNTIME_ENV: 'dev'
 
   # Container Registry
-  IMAGE_PREFIX: jeliasson-nginx
+  IMAGE_PREFIX: template
 
 jobs:
   #
