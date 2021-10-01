@@ -27,10 +27,12 @@ Repository to consolidate efforts on making a Docker implementation for RedwoodJ
 
 **Benchmark**
 
+Benchmark on running averages
+
 | Package | Build time | Image size |
 | ------- | ---------- | ---------- |
-| api     | `N/A`      | `N/A`      |
-| web     | `N/A`      | `N/A`      |
+| api     | `3m 12s`   | `1.69GB`   |
+| web     | `1m 46s`   | `25.3MB`   |
 
 **Suitable for**
 
