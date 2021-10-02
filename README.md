@@ -61,6 +61,61 @@ docker run \
       ghcr.io/jeliasson/jeliasson-nginx-web-dev:latest
 ```
 
+
+### `standal-ce-nginx`
+
+**Meta**
+| | |
+| ----------- | --------------------------------------------------------- |
+| Name | `standal-ce-nginx` |
+| Description | An implementation built for a deployment to [IBM's Code Engine](https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started), with its [best practices](https://cloud.ibm.com/docs/codeengine?topic=codeengine-dockerfile) built in. |
+| Workflow | [![standal-ce-nginx](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-ce-nginx.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-ce-nginx.yml) |
+| Maintainer | [Ryan Lockard](https://github.com/realStandal) |
+
+**Packages**
+
+| Name | Runtime             |
+| ---- | ------------------- |
+| api  | `rw-api-server`     |
+| web  | `nginx:1.21.3-alpine`      |
+
+**Benchmark**
+
+Benchmark on running averages
+
+| Package | Build time | Image size |
+| ------- | ---------- | ---------- |
+| api     | `tbd`      | `tbd`      |
+| web     | `tbd`      | `tbd`      |
+
+**Suitable for**
+
+| Scenario                    | Development | Production |
+| --------------------------- | ----------- | ---------- |
+| Basic installation          | ❌          | ❌         |
+| Preferably w/ LB/proxy      | ❌          | ✅         |
+| High Availability           | ❌          | ✅         |
+| Separation of concern       | ❌          | ✅         |
+| Handles db migration & seed | ❌          | ❌         |
+| ...                         |             |            |
+
+**Test**
+
+```bash
+# Api
+docker run \
+      -it \
+      -p 8911:8911 \
+      ghcr.io/jeliasson/standal-ce-nginx-api-dev:latest
+
+# Web
+docker run \
+      -it \
+      -p 8910:8910 \
+      ghcr.io/jeliasson/standal-ce-nginx-web-dev:latest
+```
+
+
 ## Development
 
 Essentialy we create various test implementations under the [docker](docker) directory and create [workflows](.github/workflows) to build these. Once we find a suitable approach forward, we'll discuss where the final Dockerfiles ultimately end up after a `yarn rw setup docker` (or what we end up with) setup. 🚀
