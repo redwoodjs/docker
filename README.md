@@ -85,8 +85,8 @@ Benchmark on running averages
 
 | Package | Build time | Image size |
 | ------- | ---------- | ---------- |
-| api     | `tbd`      | `tbd`      |
-| web     | `tbd`      | `tbd`      |
+| api     | `2m 57s`      | `tbd`      |
+| web     | `2m 5s`      | `tbd`      |
 
 **Suitable for**
 
