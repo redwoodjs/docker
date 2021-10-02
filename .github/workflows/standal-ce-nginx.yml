@@ -5,6 +5,7 @@ on:
 
     # Only run on these branches
     branches:
+      - main
       - standal-ce-nginx
 
     paths:

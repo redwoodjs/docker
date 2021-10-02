@@ -4,9 +4,10 @@ Repository to consolidate efforts on making a sweet Docker implementation for Re
 
 ## Implementations
 
-| Name                                | API                 | Web                  |
-| ----------------------------------- | ------------------- | -------------------- |
-| [jeliasson-nginx](#jeliasson-nginx) | `yarn rw serve api` | `nginx:alpine` image |
+| Name                                  | API                 | Web                         |
+| ------------------------------------- | ------------------- | --------------------------- |
+| [jeliasson-nginx](#jeliasson-nginx)   | `yarn rw serve api` | `nginx:alpine` image        |
+| [standal-ce-nginx](#standal-ce-nginx) | `rw-api-server`     | `nginx:1.21.3-alpine` image |
 
 ### `jeliasson-nginx`
 
@@ -51,16 +52,17 @@ Benchmark on running averages
 # Api
 docker run \
       -it \
+      --rm \
       -p 8911:8911 \
       ghcr.io/jeliasson/jeliasson-nginx-api-dev:latest
 
 # Web
 docker run \
       -it \
+      --rm \
       -p 8910:8910 \
       ghcr.io/jeliasson/jeliasson-nginx-web-dev:latest
 ```
-
 
 ### `standal-ce-nginx`
 
@@ -74,10 +76,10 @@ docker run \
 
 **Packages**
 
-| Name | Runtime             |
-| ---- | ------------------- |
-| api  | `rw-api-server`     |
-| web  | `nginx:1.21.3-alpine`      |
+| Name | Runtime               |
+| ---- | --------------------- |
+| api  | `rw-api-server`       |
+| web  | `nginx:1.21.3-alpine` |
 
 **Benchmark**
 
@@ -85,8 +87,8 @@ Benchmark on running averages
 
 | Package | Build time | Image size |
 | ------- | ---------- | ---------- |
-| api     | `2m 57s`      | `tbd`      |
-| web     | `2m 5s`      | `tbd`      |
+| api     | `2m 57s`   | `410MB`    |
+| web     | `2m 5s`    | `25.3M`    |
 
 **Suitable for**
 
@@ -105,16 +107,17 @@ Benchmark on running averages
 # Api
 docker run \
       -it \
+      --rm \
       -p 8911:8911 \
       ghcr.io/jeliasson/standal-ce-nginx-api-dev:latest
 
 # Web
 docker run \
       -it \
+      --rm \
       -p 8910:8910 \
       ghcr.io/jeliasson/standal-ce-nginx-web-dev:latest
 ```
-
 
 ## Development
 
