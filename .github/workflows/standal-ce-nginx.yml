@@ -5,13 +5,13 @@ on:
 
     # Only run on these branches
     branches:
-      - main
+      - standal-ce-nginx
 
     paths:
 
       # Implementation specific
-      - '.github/workflows/template.yml'
-      - 'docker/template/**'
+      - '.github/workflows/standal-ce-nginx.yml'
+      - 'docker/standal-ce-nginx/**'
 
       # Redwood specific
       - 'api/**'
