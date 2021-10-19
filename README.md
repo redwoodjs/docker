@@ -4,10 +4,11 @@ Repository to consolidate efforts on making a sweet Docker implementation for Re
 
 ## Implementations
 
-| Name                                  | API                 | Web                         |
-| ------------------------------------- | ------------------- | --------------------------- |
-| [jeliasson-nginx](#jeliasson-nginx)   | `yarn rw serve api` | `nginx:alpine` image        |
-| [standal-ce-nginx](#standal-ce-nginx) | `rw-api-server`     | `nginx:1.21.3-alpine` image |
+| Name                                  | API                 | Web                         | Both      |
+| ------------------------------------- | ------------------- | --------------------------- | --------- |
+| [jeliasson-nginx](#jeliasson-nginx)   | `yarn rw serve api` | `nginx:alpine` image        | -         |
+| [standal-ce-nginx](#standal-ce-nginx) | `rw-api-server`     | `nginx:1.21.3-alpine` image | -         |
+| [standal-cli-both](#standal-cli-both) | -                   | -                           | `rw serve`|
 
 ### `jeliasson-nginx`
 
@@ -117,6 +118,51 @@ docker run \
       --rm \
       -p 8910:8910 \
       ghcr.io/jeliasson/standal-ce-nginx-web-dev:latest
+```
+
+### `standal-cli-both`
+
+**Meta**
+| | |
+| ----------- | --------------------------------------------------------- |
+| Name | `standal-cli-both` |
+| Description | Builds and serves both sides from a single image, using [Redwood's CLI](https://redwoodjs.com/docs/cli-commands.html#serve). |
+| Workflow | [![standal-cli-both](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-cli-both.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-cli-both.yml) |
+| Maintainer | [Ryan Lockard](https://github.com/realStandal) |
+
+**Packages**
+
+| Name  | Runtime               |
+| ----  | --------------------- |
+| both  | `rw serve`            |
+
+**Benchmark**
+
+Benchmark on running averages
+
+| Package  | Build time | Image size |
+| -------  | ---------- | ---------- |
+| both     | `3m 33s`   | `tbd`      |
+
+**Suitable for**
+
+| Scenario                    | Development | Production |
+| --------------------------- | ----------- | ---------- |
+| Basic installation          | ✅          | ✅         |
+| Preferably w/ LB/proxy      | ❌          | ❌         |
+| High Availability           | ❌          | ❌         |
+| Separation of concern       | ❌          | ❌         |
+| Handles db migration & seed | ❌          | ❌         |
+| ...                         |             |            |
+
+**Test**
+
+```bash
+docker run \
+      -it \
+      --rm \
+      -p 8910:8910 \
+      ghcr.io/jeliasson/standal-cli-both-dev:latest
 ```
 
 ## Development
