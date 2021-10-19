@@ -142,7 +142,7 @@ Benchmark on running averages
 
 | Package  | Build time | Image size |
 | -------  | ---------- | ---------- |
-| both     | `tbd`      | `tbd`      |
+| both     | `3m 33s`   | `tbd`      |
 
 **Suitable for**
 
