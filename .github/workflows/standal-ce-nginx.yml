@@ -7,6 +7,7 @@ on:
     branches:
       - main
       - standal-ce-nginx
+      - temp
 
     paths:
 
@@ -17,7 +18,6 @@ on:
       # Redwood specific
       - 'api/**'
       - 'web/**'
-      - 'babel.config.js'
       - 'graphql.config.js'
       - 'package.json'
       - 'redwood.toml'

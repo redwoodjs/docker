@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - standal-cli-both
+      - temp
 
     paths:
       # Implementation specific
@@ -15,7 +16,6 @@ on:
       # Redwood specific
       - 'api/**'
       - 'web/**'
-      - 'babel.config.js'
       - 'graphql.config.js'
       - 'package.json'
       - 'redwood.toml'

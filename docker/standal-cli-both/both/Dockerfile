@@ -9,7 +9,6 @@ COPY yarn.lock yarn.lock
 
 COPY redwood.toml redwood.toml
 COPY graphql.config.js graphql.config.js
-COPY babel.config.js babel.config.js
 
 COPY api/package.json api/package.json
 COPY web/package.json web/package.json
@@ -40,8 +39,8 @@ COPY --from=build /app/web/dist /app/web/dist
 
 COPY --from=build /app/redwood.toml /app/redwood.toml
 
-RUN yarn --cwd "api" --production --frozen-lockfile install && \
-    yarn global add @redwoodjs/cli react react-dom
+RUN yarn --cwd "api" --production --frozen-lockfile install &&
+  yarn global add @redwoodjs/cli react react-dom
 
 EXPOSE 8910
 
