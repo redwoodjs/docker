@@ -8,12 +8,9 @@
 [web]
   title = "Redwood App - testing Docker implementations"
   port = 8910
-  apiProxyPath = "/api"             # Use /api as default api entrypoint
-  includeEnvironmentVariables = []  # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
+  apiUrl = "/api" # you can customise graphql and dbauth urls individually too: see https://redwoodjs.com/docs/app-configuration-redwood-toml#api-paths
+  includeEnvironmentVariables = [] # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
 [api]
   port = 8911
 [browser]
   open = true
-[experimental]
-  esbuild = false
-  useEnvelop = false
