@@ -23,7 +23,6 @@ on:
       # Redwood specific
       - 'api/**'
       - 'web/**'
-      - 'babel.config.js'
       - 'graphql.config.js'
       - 'package.json'
       - 'redwood.toml'

@@ -9,7 +9,6 @@ COPY yarn.lock yarn.lock
 
 COPY redwood.toml redwood.toml
 COPY graphql.config.js graphql.config.js
-COPY babel.config.js babel.config.js
 
 COPY api/package.json api/package.json
 COPY web/package.json web/package.json
@@ -31,11 +30,11 @@ RUN yarn rw build web
 FROM nginx:1.21.3-alpine
 
 RUN chown nginx /etc/nginx/nginx.conf && \
-    chown -R nginx /usr/share/nginx/html && \
-    chown -R nginx /var/cache/nginx && \
-    chown -R nginx:nginx /var/log/nginx && \
-    touch /var/run/nginx.pid && \
-    chown nginx /var/run/nginx.pid
+  chown -R nginx /usr/share/nginx/html && \
+  chown -R nginx /var/cache/nginx && \
+  chown -R nginx:nginx /var/log/nginx && \
+  touch /var/run/nginx.pid && \
+  chown nginx /var/run/nginx.pid
 
 COPY docker/standal-ce-nginx/web/config/nginx.conf /etc/nginx/nginx.conf
 
