@@ -39,7 +39,7 @@ COPY --from=build /app/web/dist /app/web/dist
 
 COPY --from=build /app/redwood.toml /app/redwood.toml
 
-RUN yarn --cwd "api" --production --frozen-lockfile install &&
+RUN yarn --cwd "api" --production --frozen-lockfile install && \
   yarn global add @redwoodjs/cli react react-dom
 
 EXPOSE 8910
