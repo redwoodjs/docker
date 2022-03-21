@@ -29,11 +29,11 @@ RUN yarn rw build web
 # Serve
 FROM nginx:1.21.3-alpine
 
-RUN chown nginx /etc/nginx/nginx.conf &&
-  chown -R nginx /usr/share/nginx/html &&
-  chown -R nginx /var/cache/nginx &&
-  chown -R nginx:nginx /var/log/nginx &&
-  touch /var/run/nginx.pid &&
+RUN chown nginx /etc/nginx/nginx.conf && \
+  chown -R nginx /usr/share/nginx/html && \
+  chown -R nginx /var/cache/nginx && \
+  chown -R nginx:nginx /var/log/nginx && \
+  touch /var/run/nginx.pid && \
   chown nginx /var/run/nginx.pid
 
 COPY docker/standal-ce-nginx/web/config/nginx.conf /etc/nginx/nginx.conf
