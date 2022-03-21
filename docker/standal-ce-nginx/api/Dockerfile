@@ -32,7 +32,7 @@ RUN chown -R node /app
 
 COPY api/package.json .
 
-RUN yarn install &&
+RUN yarn install && \
   yarn global add @redwoodjs/api-server @redwoodjs/internal
 
 COPY graphql.config.js .
