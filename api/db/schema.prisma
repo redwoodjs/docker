@@ -13,7 +13,7 @@ model UserRoles {
   name String
 }
 
-model UsersAsPhones {
+model UsesAsPhone {
   id                  String    @id
   phone               String    @unique(map: "ValidatePhone.phone_unique")
   entry               String?
