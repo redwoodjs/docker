@@ -7,9 +7,21 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  body      String
-  createdAt DateTime @default(now())
+model UserRoles {
+  id   String @id
+  name String
+}
+
+model UsersAsPhones {
+  id                  String    @id
+  phone               String    @unique(map: "ValidatePhone.phone_unique")
+  entry               String?
+  name                String?
+  refreshToken        String?
+  accessKey           String?
+  hashedPassword      String    @default("")
+  salt                String    @default("")
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  roles               String    @default("[]")
 }
