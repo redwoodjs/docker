@@ -7,7 +7,6 @@ on:
     branches:
       - main
       - standal-ce-nginx
-      - temp
 
     paths:
 
@@ -55,7 +54,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: jeliasson
+          username: needs-to-be-updated
           password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
 
       - name: Docker build
@@ -68,5 +67,5 @@ jobs:
             NODE_ENV=${{ env.NODE_ENV }}
             RUNTIME_ENV=${{ env.RUNTIME_ENV }}
           tags: |
-            ghcr.io/jeliasson/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
-            ghcr.io/jeliasson/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}
+            ghcr.io/redwoodjs/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
+            ghcr.io/redwoodjs/${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}
