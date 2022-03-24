@@ -1,16 +1,11 @@
-/*
-  Warnings:
-
-  - You are about to drop the `UsersAsPhones` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropTable
-PRAGMA foreign_keys=off;
-DROP TABLE "UsersAsPhones";
-PRAGMA foreign_keys=on;
+-- CreateTable
+CREATE TABLE "UserRoles" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "name" TEXT NOT NULL
+);
 
 -- CreateTable
-CREATE TABLE "UsesAsPhone" (
+CREATE TABLE "UserAsPhone" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "phone" TEXT NOT NULL,
     "entry" TEXT,
@@ -25,4 +20,4 @@ CREATE TABLE "UsesAsPhone" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "ValidatePhone.phone_unique" ON "UsesAsPhone"("phone");
+CREATE UNIQUE INDEX "ValidatePhone.phone_unique" ON "UserAsPhone"("phone");
