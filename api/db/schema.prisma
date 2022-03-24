@@ -14,7 +14,7 @@ model UserRoles {
 }
 
 model UserAsPhone {
-  id                  String    @id
+  id                  String    @id @default(uuid())
   phone               String    @unique(map: "ValidatePhone.phone_unique")
   entry               String?
   name                String?
