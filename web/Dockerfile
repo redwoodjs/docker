@@ -17,7 +17,7 @@ COPY web web
 COPY .nvmrc .
 COPY graphql.config.js .
 COPY package.json .
-COPY redwood.toml .
+COPY docker.toml ./redwood.toml
 COPY yarn.lock .
 
 # Install dependencies
