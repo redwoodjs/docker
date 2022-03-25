@@ -48,4 +48,4 @@ ENTRYPOINT [ "rw", "serve" ]
 CMD []
 
 ### Connect image to repository
-LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
+LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker
