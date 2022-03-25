@@ -42,4 +42,4 @@ EXPOSE 8911
 ENTRYPOINT [ "yarn", "rw", "serve", "api", "--port", "8911", "--rootPath", "/api" ]
 
 ### Connect image to repository
-LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
+LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker

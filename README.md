@@ -17,7 +17,7 @@ Repository to consolidate efforts on making a sweet Docker implementation for Re
 | ----------- | --------------------------------------------------------- |
 | Name | `jeliasson-nginx` |
 | Description | A test implementation that builds api and web seperately. |
-| Workflow | [![jeliasson-nginx](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/jeliasson-nginx.yml) |
+| Workflow | [![jeliasson-nginx](https://github.com/redwoodjs/docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/jeliasson-nginx.yml) |
 | Maintainer | [Johan Eliasson](https://github.com/jeliasson) |
 
 **Packages**
@@ -55,14 +55,14 @@ docker run \
       -it \
       --rm \
       -p 8911:8911 \
-      ghcr.io/jeliasson/jeliasson-nginx-api-dev:latest
+      ghcr.io/redwoodjs/jeliasson-nginx-api-dev:latest
 
 # Web
 docker run \
       -it \
       --rm \
       -p 8910:8910 \
-      ghcr.io/jeliasson/jeliasson-nginx-web-dev:latest
+      ghcr.io/redwoodjs/jeliasson-nginx-web-dev:latest
 ```
 
 ### `standal-ce-nginx`
@@ -72,7 +72,7 @@ docker run \
 | ----------- | --------------------------------------------------------- |
 | Name | `standal-ce-nginx` |
 | Description | An implementation built for a deployment to [IBM's Code Engine](https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started), with its [best practices](https://cloud.ibm.com/docs/codeengine?topic=codeengine-dockerfile) built in. |
-| Workflow | [![standal-ce-nginx](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-ce-nginx.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-ce-nginx.yml) |
+| Workflow | [![standal-ce-nginx](https://github.com/redwoodjs/docker/actions/workflows/standal-ce-nginx.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/standal-ce-nginx.yml) |
 | Maintainer | [Ryan Lockard](https://github.com/realStandal) |
 
 **Packages**
@@ -110,14 +110,14 @@ docker run \
       -it \
       --rm \
       -p 8911:8911 \
-      ghcr.io/jeliasson/standal-ce-nginx-api-dev:latest
+      ghcr.io/redwoodjs/standal-ce-nginx-api-dev:latest
 
 # Web
 docker run \
       -it \
       --rm \
       -p 8910:8910 \
-      ghcr.io/jeliasson/standal-ce-nginx-web-dev:latest
+      ghcr.io/redwoodjs/standal-ce-nginx-web-dev:latest
 ```
 
 ### `standal-cli-both`
@@ -127,7 +127,7 @@ docker run \
 | ----------- | --------------------------------------------------------- |
 | Name | `standal-cli-both` |
 | Description | Builds and serves both sides from a single image, using [Redwood's CLI](https://redwoodjs.com/docs/cli-commands.html#serve). |
-| Workflow | [![standal-cli-both](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-cli-both.yml/badge.svg)](https://github.com/jeliasson/redwoodjs-docker/actions/workflows/standal-cli-both.yml) |
+| Workflow | [![standal-cli-both](https://github.com/redwoodjs/docker/actions/workflows/standal-cli-both.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/standal-cli-both.yml) |
 | Maintainer | [Ryan Lockard](https://github.com/realStandal) |
 
 **Packages**
@@ -162,7 +162,7 @@ docker run \
       -it \
       --rm \
       -p 8910:8910 \
-      ghcr.io/jeliasson/standal-cli-both-dev:latest
+      ghcr.io/redwoodjs/standal-cli-both-dev:latest
 ```
 
 ## Development
@@ -175,7 +175,7 @@ Add below `LABEL` to bottom each Dockerfile to connect published Docker image to
 
 ```Dockerfile
 ### Connect image to repository
-LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
+LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker
 ```
 
 #### Images
