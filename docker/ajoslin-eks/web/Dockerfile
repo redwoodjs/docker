@@ -17,7 +17,7 @@ COPY web web
 COPY .nvmrc .
 COPY graphql.config.js .
 COPY package.json .
-COPY redwood.toml .
+COPY docker.toml ./redwood.toml
 COPY yarn.lock .
 
 # Install dependencies
@@ -48,4 +48,4 @@ RUN ls -lA /usr/share/nginx/html
 EXPOSE 8910
 
 ### Connect image to repository
-LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker
+LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
