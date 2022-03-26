@@ -55,14 +55,14 @@ docker run \
       -it \
       --rm \
       -p 8911:8911 \
-      ghcr.io/redwoodjs/jeliasson-nginx-api-dev:latest
+      ghcr.io/redwoodjs/docker-jeliasson-nginx-api-dev:latest
 
 # Web
 docker run \
       -it \
       --rm \
       -p 8910:8910 \
-      ghcr.io/redwoodjs/jeliasson-nginx-web-dev:latest
+      ghcr.io/redwoodjs/docker-jeliasson-nginx-web-dev:latest
 ```
 
 ### `standal-ce-nginx`
@@ -110,14 +110,14 @@ docker run \
       -it \
       --rm \
       -p 8911:8911 \
-      ghcr.io/redwoodjs/standal-ce-nginx-api-dev:latest
+      ghcr.io/redwoodjs/docker-standal-ce-nginx-api-dev:latest
 
 # Web
 docker run \
       -it \
       --rm \
       -p 8910:8910 \
-      ghcr.io/redwoodjs/standal-ce-nginx-web-dev:latest
+      ghcr.io/redwoodjs/docker-standal-ce-nginx-web-dev:latest
 ```
 
 ### `standal-cli-both`
@@ -162,7 +162,7 @@ docker run \
       -it \
       --rm \
       -p 8910:8910 \
-      ghcr.io/redwoodjs/standal-cli-both-dev:latest
+      ghcr.io/redwoodjs/docker-standal-cli-both-dev:latest
 ```
 
 ## Development
@@ -182,16 +182,16 @@ LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker
 
 Published Docker images to GitHub Container Registry should preferably be named;
 
-- `<prefix>-api-dev` for api build with development as runtime env.
-- `<prefix>-web-dev` for web build with development as runtime env.
-- `<prefix>-both-dev` for api and web build with development as runtime env.
-- `<prefix>-api-prod` for api build with production as runtime env.
-- `<prefix>-web-prod` for web build with production as runtime env.
-- `<prefix>-both-prod` for api and web build with production as runtime env.
+- `docker-<prefix>-api-dev` for api build with development as runtime env.
+- `docker-<prefix>-web-dev` for web build with development as runtime env.
+- `docker-<prefix>-both-dev` for api and web build with development as runtime env.
+- `docker-<prefix>-api-prod` for api build with production as runtime env.
+- `docker-<prefix>-web-prod` for web build with production as runtime env.
+- `docker-<prefix>-both-prod` for api and web build with production as runtime env.
 
 e.g.
 
-- `jeliasson-nginx-web-dev`
+- `docker-jeliasson-nginx-web-dev`
 
 ### CI
 
