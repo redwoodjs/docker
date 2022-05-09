@@ -1,12 +1,12 @@
 # Redwood on Docker
 
-Repository to consolidate efforts on making a sweet Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291).
+Repository to consolidate efforts on making a sweet Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291). This repository is currently up to date with Redwood version `1.3.1`.
 
 ## Implementations
 
 | Name                                  | API                 | Web                         | Both      |
 | ------------------------------------- | ------------------- | --------------------------- | --------- |
-| [jeliasson-nginx](#jeliasson-nginx)   | `yarn rw serve api` | `nginx:alpine` image        | -         |
+| [jeliasson-nginx](#jeliasson-nginx)   | `yarn rw serve api` | `node:14-alpine` image        | -         |
 | [standal-ce-nginx](#standal-ce-nginx) | `rw-api-server`     | `nginx:1.21.3-alpine` image | -         |
 | [standal-cli-both](#standal-cli-both) | -                   | -                           | `rw serve`|
 
@@ -16,7 +16,7 @@ Repository to consolidate efforts on making a sweet Docker implementation for Re
 | | |
 | ----------- | --------------------------------------------------------- |
 | Name | `jeliasson-nginx` |
-| Description | A test implementation that builds api and web seperately. |
+| Description | A production tested implementation that builds api and web seperately. |
 | Workflow | [![jeliasson-nginx](https://github.com/redwoodjs/docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/jeliasson-nginx.yml) |
 | Maintainer | [Johan Eliasson](https://github.com/jeliasson) |
 
@@ -24,8 +24,8 @@ Repository to consolidate efforts on making a sweet Docker implementation for Re
 
 | Name | Runtime             |
 | ---- | ------------------- |
-| api  | `yarn rw serve api` |
-| web  | `nginx:alpine`      |
+| api  | `rw-api-server` |
+| web  | `node:14-alpine`      |
 
 **Benchmark**
 
@@ -33,8 +33,8 @@ Benchmark on running averages
 
 | Package | Build time | Image size |
 | ------- | ---------- | ---------- |
-| api     | `3m 12s`   | `1.69GB`   |
-| web     | `1m 46s`   | `25.3MB`   |
+| api     | `~2m 18s`   | `613MB`   |
+| web     | `~1m 24s`   | `142MB`   |
 
 **Suitable for**
 
@@ -51,16 +51,12 @@ Benchmark on running averages
 
 ```bash
 # Api
-docker run \
-      -it \
-      --rm \
+docker run -it --rm \
       -p 8911:8911 \
       ghcr.io/redwoodjs/docker-jeliasson-nginx-api-dev:latest
 
 # Web
-docker run \
-      -it \
-      --rm \
+docker run -it --rm \
       -p 8910:8910 \
       ghcr.io/redwoodjs/docker-jeliasson-nginx-web-dev:latest
 ```
@@ -76,7 +72,6 @@ docker run \
 | Maintainer | [Ryan Lockard](https://github.com/realStandal) |
 
 **Packages**
-
 | Name | Runtime               |
 | ---- | --------------------- |
 | api  | `rw-api-server`       |
@@ -88,8 +83,8 @@ Benchmark on running averages
 
 | Package | Build time | Image size |
 | ------- | ---------- | ---------- |
-| api     | `2m 57s`   | `410MB`    |
-| web     | `2m 5s`    | `25.3M`    |
+| api     | `~2m 57s`   | `410MB`    |
+| web     | `~2m 5s`    | `25.3M`    |
 
 **Suitable for**
 
@@ -106,16 +101,12 @@ Benchmark on running averages
 
 ```bash
 # Api
-docker run \
-      -it \
-      --rm \
+docker run -it --rm \
       -p 8911:8911 \
       ghcr.io/redwoodjs/docker-standal-ce-nginx-api-dev:latest
 
 # Web
-docker run \
-      -it \
-      --rm \
+docker run -it --rm \
       -p 8910:8910 \
       ghcr.io/redwoodjs/docker-standal-ce-nginx-web-dev:latest
 ```
@@ -142,7 +133,7 @@ Benchmark on running averages
 
 | Package  | Build time | Image size |
 | -------  | ---------- | ---------- |
-| both     | `3m 33s`   | `tbd`      |
+| both     | `~3m 33s`   | `tbd`      |
 
 **Suitable for**
 
@@ -159,8 +150,8 @@ Benchmark on running averages
 
 ```bash
 docker run \
-      -it \
-      --rm \
+t \
+rm \
       -p 8910:8910 \
       ghcr.io/redwoodjs/docker-standal-cli-both-dev:latest
 ```
@@ -192,6 +183,13 @@ Published Docker images to GitHub Container Registry should preferably be named;
 e.g.
 
 - `docker-jeliasson-nginx-web-dev`
+
+### Benchmarks
+
+To keep track of the implementations effectiveness, we maintain a running average on below metrics.
+
+- **Build Size**: On successful builds we display the image size in the analyse stage. In this stage we also run a [dive](https://github.com/wagoodman/dive#ci-integration) analysis.
+- **Build time**: Average time for 'Docker build' completion in respective workflow.
 
 ### CI
 
