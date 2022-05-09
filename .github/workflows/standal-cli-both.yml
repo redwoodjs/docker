@@ -5,6 +5,7 @@ on:
     # Only run on these branches
     branches:
       - main
+      - ci/**
       - standal-cli-both
 
     paths:

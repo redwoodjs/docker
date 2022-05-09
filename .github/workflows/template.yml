@@ -12,6 +12,7 @@ on:
     # Only run on these branches
     branches:
       #- main
+      - ci/**
       - template-branch
 
     paths:

@@ -6,6 +6,7 @@ on:
     # Only run on these branches
     branches:
       - main
+      - ci/**
       - jeliasson-nginx
 
     paths:
