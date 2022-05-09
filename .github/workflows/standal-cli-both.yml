@@ -5,6 +5,7 @@ on:
     # Only run on these branches
     branches:
       - main
+      - ci/**
       - standal-cli-both
 
     paths:
@@ -51,7 +52,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: thedavidprice
+          username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
 
       - name: Docker build
