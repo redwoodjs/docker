@@ -34,8 +34,6 @@ FROM base as build
 COPY api api
 COPY web web
 
-RUN cat /app/redwood.toml
-
 # Build
 RUN yarn rw build web
 
