@@ -106,6 +106,6 @@ jobs:
         run: |
           CI=true dive ghcr.io/${{ github.repository_owner }}/docker-${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}
 
-      - name: Various information
+      - name: Image size
         run: |
-          docker images
+          docker images | egrep '^.*SIZE|docker\-.*'
