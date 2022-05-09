@@ -97,7 +97,7 @@ jobs:
           username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
 
-      - name: Install Dive
+      - name: Install dependencies
         run: |
           wget https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
           sudo apt install ./dive_0.9.2_linux_amd64.deb
@@ -105,3 +105,7 @@ jobs:
       - name: Run Dive
         run: |
           CI=true dive ghcr.io/${{ github.repository_owner }}/docker-${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}
+
+      - name: Various information
+        run: |
+          docker images
