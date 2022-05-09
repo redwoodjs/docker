@@ -44,10 +44,12 @@ RUN yarn rw build api
 # RUN yarn rw prisma migrate resolve --applied 20210311161829_baseline0
 
 # Migrate database
-RUN yarn rw prisma migrate deploy
+# !! Disabled in this repo
+#RUN yarn rw prisma migrate deploy
 
 # Seed database
-RUN yarn rw prisma db seed
+# !! Disabled in this repo
+#RUN yarn rw prisma db seed
 
 ###########################################################################################
 # Runner
