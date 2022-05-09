@@ -47,7 +47,7 @@ FROM nginx
 
 # Copy dist
 COPY --from=build /app/web/dist /app/web/dist
-COPY web/config/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY docker/jeliasson-nginx/config/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8910
 
