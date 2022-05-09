@@ -68,5 +68,5 @@ jobs:
             NODE_ENV=${{ env.NODE_ENV }}
             RUNTIME_ENV=${{ env.RUNTIME_ENV }}
           tags: |
-            ghcr.io/redwoodjs/docker-${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
-            ghcr.io/redwoodjs/docker-${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/docker-${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
+            ghcr.io/${{ github.repository_owner }}/docker-${{ env.IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}
