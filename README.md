@@ -166,7 +166,7 @@ NOTE: not everything can be run here. Instead see: https://github.com/pi0neerpat
 | | |
 | ----------- | --------------------------------------------------------- |
 | Name | `pi0neerpat-packages` |
-| Description | An extension of `jeliasson-nginx` which supports local packages |
+| Description | Similar to `jeliasson-nginx`, but supports 📦 local packages |
 | Maintainer | [Patrick](https://github.com/pi0neerpt) |
 
 **Packages**
