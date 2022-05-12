@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": {
+          "version": "3.12",
+          "proposals": true
+        },
+        "exclude": [
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-proposal-private-methods"
+        ]
+      }
+    ]
+  ]
+}

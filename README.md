@@ -6,9 +6,10 @@ Repository to consolidate efforts on making a sweet Docker implementation for Re
 
 | Name                                  | API                 | Web                         | Both      |
 | ------------------------------------- | ------------------- | --------------------------- | --------- |
-| [jeliasson-nginx](#jeliasson-nginx)   | `yarn rw serve api` | `node:14-alpine` image        | -         |
+| [jeliasson-nginx](#jeliasson-nginx)   | `yarn rw serve api` | `node:14-alpine` image      | -         |
 | [standal-ce-nginx](#standal-ce-nginx) | `rw-api-server`     | `nginx:1.21.3-alpine` image | -         |
 | [standal-cli-both](#standal-cli-both) | -                   | -                           | `rw serve`|
+| [pi0neerpat-packages](#pi0neerpat-packages) | `rw-server api`| `nginx` image              | -         |
 
 ### `jeliasson-nginx`
 
@@ -155,6 +156,41 @@ rm \
       -p 8910:8910 \
       ghcr.io/redwoodjs/docker-standal-cli-both-dev:latest
 ```
+
+
+### pi0neerpat-packages
+
+NOTE: not everything can be run here. Instead see: https://github.com/pi0neerpat/redwood-devops-example
+
+**Meta**
+| | |
+| ----------- | --------------------------------------------------------- |
+| Name | `pi0neerpat-packages` |
+| Description | An extension of `jeliasson-nginx` which supports local packages |
+| Maintainer | [Patrick](https://github.com/pi0neerpt) |
+
+**Packages**
+| Name | Runtime               |
+| ---- | --------------------- |
+| api  | `rw-api-server`       |
+| web  | `nginx` |
+
+**Benchmark**
+
+Similar to `jeliasson-nginx`
+
+**Suitable for**
+
+| Scenario                    | Development | Production |
+| --------------------------- | ----------- | ---------- |
+| Basic installation          | ❌          | ❌         |
+| Preferably w/ LB/proxy      | ❌          | ✅         |
+| High Availability           | ❌          | ✅         |
+| Separation of concern       | ❌          | ✅         |
+| Handles db migration & seed | ❌          | ✅         |
+| Supports local packages     | ❌          | ✅         |
+| ...                         |             |            |
+
 
 ## Development
 
