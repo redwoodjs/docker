@@ -62,3 +62,5 @@ EXPOSE 8911
 
 # Entrypoint to @redwoodjs/api-server binary
 ENTRYPOINT ["./serve-api.sh"]
+
+LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker
