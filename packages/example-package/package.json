@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/node": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "nodemon": "^2.0.15"
+    "@babel/node": "7.17.10",
+    "@babel/preset-env": "7.17.12",
+    "nodemon": "2.0.16"
   }
 }
