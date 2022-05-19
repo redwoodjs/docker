@@ -44,7 +44,7 @@ COPY --from=build /app/packages /app/packages
 
 # Only install necessary dependencies.
 # Uses Lerna for linking local packages, and Prisma for migrations
-RUN yarn global add @redwoodjs/api-server @redwoodjs/internal lerna && \
+RUN yarn global add @redwoodjs/api-server@1.3.1 @redwoodjs/internal@1.3.1 lerna prisma && \
       yarn install --production --frozen-lockfile && \
       yarn cache clean && \
 # Helpful utilities for exploring your container

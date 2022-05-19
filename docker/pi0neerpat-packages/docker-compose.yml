@@ -1,0 +1,42 @@
+version: '3'
+services:
+  database:
+    image: 'postgres:latest'
+    # NOTE: avoid collision with local postgres port
+    ports:
+      - 6543:5432
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: default_database
+  api:
+    image: pi0neerpat/redwood-devops-example-api:latest
+    depends_on:
+      - database
+    ports:
+      - '8911:8911'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '200k'
+        max-file: '10'
+    env_file:
+      - .env
+    environment:
+      REDWOOD_API_URL: 'http://0.0.0.0:8911'
+      # To connect to a local database, run ifconfig docker0 and update the host for the database.
+      # Learn more: https://stackoverflow.com/questions/31249112/allow-docker-container-to-connect-to-a-local-host-postgres-database
+      DATABASE_URL: postgres://username:password@database:5432/redwooddevopsexample?connection_limit=1
+  web:
+    image: pi0neerpat/redwood-devops-example-web:latest
+    depends_on:
+      - api
+    ports:
+      - '8910:8910'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '200k'
+        max-file: '10'
+    env_file:
+      - .env

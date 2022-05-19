@@ -15,6 +15,31 @@ ENV VERSION=$VERSION
 ENV REDWOOD_API_URL=$REDWOOD_API_URL
 ENV APP_DOMAIN=$APP_DOMAIN
 
+
+# Set workdir
+WORKDIR /app
+
+COPY web web
+COPY packages packages
+COPY .nvmrc .
+COPY graphql.config.js .
+COPY package.json .
+COPY redwood.toml .
+COPY yarn.lock .
+COPY lerna.json .
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# Build packages
+RUN yarn build-packages
+
+# Build
+RUN yarn rw build web
+
+# Clean up
+RUN rm -rf ./web/src
+
 ###########################################################################################
 # Runner: Nginx
 ###########################################################################################
