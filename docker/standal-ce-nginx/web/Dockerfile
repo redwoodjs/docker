@@ -27,7 +27,7 @@ RUN yarn rw build web
 
 #==
 # Serve
-FROM nginx:1.21.3-alpine
+FROM nginx:1.21.6-alpine
 
 RUN chown nginx /etc/nginx/nginx.conf && \
   chown -R nginx /usr/share/nginx/html && \
