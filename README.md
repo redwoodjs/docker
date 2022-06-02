@@ -1,6 +1,6 @@
 # Redwood on Docker
 
-Repository to consolidate efforts on making a sweet Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291). This repository is currently up to date with Redwood version `1.3.1`.
+Repository to consolidate efforts on making a sweet Docker implementation for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291). This repository is currently up to date with Redwood version `1.5.1`.
 
 ## Implementations
 
