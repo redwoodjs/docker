@@ -1,4 +1,4 @@
-name: 'standal-cli-both'
+name: 'pi0neerpat-packages'
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
     branches:
       - main
       - ci/**
-      - standal-cli-both
+      - pi0neerpat-packages
 
     paths:
       # Implementation specific
-      - '.github/workflows/standal-cli-both.yml'
-      - 'docker/standal-cli-both/**'
+      - '.github/workflows/pi0neerpat-packages.yml'
+      - 'docker/pi0neerpat-packages/**'
 
       # Redwood specific
       - 'api/**'
@@ -27,7 +27,7 @@ env:
   RUNTIME_ENV: 'dev'
 
   # Container Registry
-  IMAGE_PREFIX: standal-cli-both
+  IMAGE_PREFIX: pi0neerpat-packages
 
 jobs:
   #
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [both]
+        platform: [api, web]
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
@@ -79,7 +79,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [both]
+        platform: [api, web]
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
