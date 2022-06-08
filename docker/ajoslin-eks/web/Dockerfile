@@ -48,4 +48,4 @@ RUN ls -lA /usr/share/nginx/html
 EXPOSE 8910
 
 ### Connect image to repository
-LABEL org.opencontainers.image.source=https://github.com/jeliasson/redwoodjs-docker
+LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker
