@@ -12555,7 +12555,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.17.10
     "@babel/preset-env": 7.17.12
-    nodemon: 2.0.16
+    nodemon: 2.0.19
   languageName: unknown
   linkType: soft
 
@@ -18297,6 +18297,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nodemon@npm:2.0.19":
+  version: 2.0.19
+  resolution: "nodemon@npm:2.0.19"
+  dependencies:
+    chokidar: ^3.5.2
+    debug: ^3.2.7
+    ignore-by-default: ^1.0.1
+    minimatch: ^3.0.4
+    pstree.remy: ^1.1.8
+    semver: ^5.7.1
+    simple-update-notifier: ^1.0.7
+    supports-color: ^5.5.0
+    touch: ^3.1.0
+    undefsafe: ^2.0.5
+  bin:
+    nodemon: bin/nodemon.js
+  checksum: 53ccc2cf92bce69046399173b23e281a04be62d59ac6e6689cbb0f5ada83673720e52795abe74113bffabb47078632a198b877e458f7b3f8756186d26dcf729c
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^5.0.0":
   version: 5.0.0
   resolution: "nopt@npm:5.0.0"
@@ -21591,7 +21611,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.0.0":
+"semver@npm:7.0.0, semver@npm:~7.0.0":
   version: 7.0.0
   resolution: "semver@npm:7.0.0"
   bin:
@@ -21883,6 +21903,15 @@ __metadata:
   version: 1.0.0
   resolution: "signedsource@npm:1.0.0"
   checksum: dbb4ade9c94888e83c16d23ef1a43195799de091d366d130be286415e8aeb97b3f25b14fd26fc5888e1335d703ad561374fddee32e43b7cea04751b93d178a47
+  languageName: node
+  linkType: hard
+
+"simple-update-notifier@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "simple-update-notifier@npm:1.0.7"
+  dependencies:
+    semver: ~7.0.0
+  checksum: a1c536a037818f45128cbeb96e89d11c8a241f13eb2a301b95c4b78a563e1b652a7d2213d3c111383babac2bcbef7b04e6b33e7ae48023d5f660f4d44e7ecfbe
   languageName: node
   linkType: hard
 
