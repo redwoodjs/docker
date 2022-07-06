@@ -2,7 +2,7 @@
 # Base
 ###########################################################################################
 
-FROM node:14-alpine as base
+FROM node:18-alpine as base
 WORKDIR /app
 
 ARG NODE_ENV
@@ -55,7 +55,7 @@ RUN yarn rw build api
 # Runner
 ###########################################################################################
 
-FROM node:14-alpine
+FROM node:18-alpine
 WORKDIR /app
 
 # Copy

@@ -2,7 +2,7 @@
 # Builder: node
 ###########################################################################################
 
-FROM node:14 as builder
+FROM node:18 as builder
 
 # Node
 ARG ENVIRONMENT
