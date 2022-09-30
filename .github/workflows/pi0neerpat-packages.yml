@@ -1,19 +1,17 @@
-name: 'jeliasson-nginx'
+name: 'pi0neerpat-packages'
 
 on:
   push:
-
     # Only run on these branches
     branches:
       - main
       - ci/**
-      - jeliasson-nginx
+      - pi0neerpat-packages
 
     paths:
-
       # Implementation specific
-      - '.github/workflows/jeliasson-nginx.yml'
-      - 'docker/jeliasson-nginx/**'
+      - '.github/workflows/pi0neerpat-packages.yml'
+      - 'docker/pi0neerpat-packages/**'
 
       # Redwood specific
       - 'api/**'
@@ -24,13 +22,12 @@ on:
       - 'yarn.lock'
 
 env:
-
   # Environment variable
   NODE_ENV: 'development'
   RUNTIME_ENV: 'dev'
 
   # Container Registry
-  IMAGE_PREFIX: jeliasson-nginx
+  IMAGE_PREFIX: pi0neerpat-packages
 
 jobs:
   #

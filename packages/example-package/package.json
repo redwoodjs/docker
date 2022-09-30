@@ -1,0 +1,19 @@
+{
+  "name": "example-package",
+  "version": "0.1.6-staging.5",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "build:watch": "nodemon --watch src --ext \"js,ts,tsx\" --ignore dist --exec \"yarn build\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/node": "7.18.10",
+    "@babel/preset-env": "7.19.0",
+    "nodemon": "2.0.20"
+  }
+}

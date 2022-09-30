@@ -1,51 +1,53 @@
 ###########################################################################################
-# Builder: node
+# Base
 ###########################################################################################
 
-FROM node:14-alpine as builder
-
-# Node
-ARG NODE_ENV
-ARG RUNTIME_ENV
-ENV NODE_ENV=$NODE_ENV
-ENV RUNTIME_ENV=$RUNTIME_ENV
-
-# Set workdir
+FROM node:14-alpine as base
 WORKDIR /app
 
-COPY web web
-COPY .nvmrc .
-COPY graphql.config.js .
+ARG NODE_ENV
+ENV NODE_ENV=$NODE_ENV
+ARG RUNTIME_ENV
+ENV RUNTIME_ENV=$RUNTIME_ENV
+
+# Copy
+COPY api/package.json api/package.json
+COPY web/package.json web/package.json
 COPY package.json .
-COPY redwood.toml .
 COPY yarn.lock .
+COPY redwood.toml .
+COPY graphql.config.js .
+COPY .env.defaults .
+COPY .yarn .yarn
+COPY .yarnrc.yml .
 
 # Install dependencies
-RUN yarn install --frozen-lockfile
+RUN yarn install
+
+###########################################################################################
+# Build
+###########################################################################################
+
+FROM base as build
+
+# Copy
+COPY api api
+COPY web web
 
 # Build
 RUN yarn rw build web
 
-# Clean up
-RUN rm -rf ./web/src
-
 ###########################################################################################
-# Runner: Nginx
+# Runner
 ###########################################################################################
 
-FROM nginx:alpine as runner
+FROM nginx
 
 # Copy dist
-COPY --from=builder /app/web/dist /usr/share/nginx/html
-
-# Copy nginx configuration
+COPY --from=build /app/web/dist /app/web/dist
 COPY docker/jeliasson-nginx/web/config/nginx.conf /etc/nginx/conf.d/default.conf
 
-# List files
-RUN ls -lA /usr/share/nginx/html
-
-# Expose RedwoodJS web port
 EXPOSE 8910
 
-### Connect image to repository
-LABEL org.opencontainers.image.source=https://github.com/redwoodjs/docker
+# Manually adding CMD instruction (from upstream) to bring in for analyzing
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
