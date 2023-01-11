@@ -28,6 +28,9 @@ on:
       - 'redwood.toml'
       - 'yarn.lock'
 
+      # Generic
+      - '.yarn/releases/**'
+
 env:
 
   # Environment variable
