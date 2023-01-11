@@ -23,6 +23,11 @@ COPY .env.defaults .
 COPY .yarn .yarn
 COPY .yarnrc.yml .
 
+# Fix error 'Error: Unable to establish a connection to query-engine-node-api library.''
+# @see: https://github.com/prisma/prisma/issues/16553#issuecomment-1353302617
+#       https://github.com/prisma/prisma/issues/14073#issuecomment-1348534199
+RUN apk add --update --no-cache openssl1.1-compat
+
 # Install dependencies
 RUN yarn install
 
@@ -67,6 +72,11 @@ COPY redwood.toml .
 COPY .env.defaults .
 #COPY .yarn .yarn     # @todo: Fix issue with @prisma/client missing when using yarn 3.x
 #COPY .yarnrc.yml .   # @todo: Fix issue with @prisma/client missing when using yarn 3.x
+
+# Fix error 'Error: Unable to establish a connection to query-engine-node-api library.''
+# @see: https://github.com/prisma/prisma/issues/16553#issuecomment-1353302617
+#       https://github.com/prisma/prisma/issues/14073#issuecomment-1348534199
+RUN apk add --update --no-cache openssl1.1-compat
 
 # Install dependencies
 RUN yarn install

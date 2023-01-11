@@ -13,6 +13,11 @@ COPY graphql.config.js graphql.config.js
 COPY api/package.json api/package.json
 COPY web/package.json web/package.json
 
+# Fix error 'Error: Unable to establish a connection to query-engine-node-api library.''
+# @see: https://github.com/prisma/prisma/issues/16553#issuecomment-1353302617
+#       https://github.com/prisma/prisma/issues/14073#issuecomment-1348534199
+RUN apk add --update --no-cache openssl1.1-compat
+
 RUN yarn install --frozen-lockfile
 
 # ==

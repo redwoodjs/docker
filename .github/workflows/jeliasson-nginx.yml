@@ -10,7 +10,6 @@ on:
       - jeliasson-nginx
 
     paths:
-
       # Implementation specific
       - '.github/workflows/jeliasson-nginx.yml'
       - 'docker/jeliasson-nginx/**'
@@ -22,6 +21,9 @@ on:
       - 'package.json'
       - 'redwood.toml'
       - 'yarn.lock'
+
+      # Generic
+      - '.yarn/releases/**'
 
 env:
 
