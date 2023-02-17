@@ -66,6 +66,7 @@ WORKDIR /app
 # Copy
 COPY --from=build /app/api/dist /app/api/dist
 COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
+COPY api/server.config.js api/server.config.js
 COPY api/package.json .
 COPY graphql.config.js .
 COPY redwood.toml .
