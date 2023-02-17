@@ -1,6 +1,6 @@
 # ==
 # Base
-FROM node:14-alpine as base
+FROM node:19-alpine as base
 
 WORKDIR /app
 
