@@ -12072,7 +12072,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.20.7
     "@babel/preset-env": 7.20.2
-    nodemon: 2.0.20
+    nodemon: 2.0.21
   languageName: unknown
   linkType: soft
 
@@ -17583,6 +17583,26 @@ __metadata:
   bin:
     nodemon: bin/nodemon.js
   checksum: ac490585e976028bab441dc5149203b2a220b91d5e40f0698e3625a2da40c28c306b6f7b4e95e15b60ad1428231337161636de2eca665eb4a7ea2f73b4c3a096
+  languageName: node
+  linkType: hard
+
+"nodemon@npm:2.0.21":
+  version: 2.0.21
+  resolution: "nodemon@npm:2.0.21"
+  dependencies:
+    chokidar: ^3.5.2
+    debug: ^3.2.7
+    ignore-by-default: ^1.0.1
+    minimatch: ^3.1.2
+    pstree.remy: ^1.1.8
+    semver: ^5.7.1
+    simple-update-notifier: ^1.0.7
+    supports-color: ^5.5.0
+    touch: ^3.1.0
+    undefsafe: ^2.0.5
+  bin:
+    nodemon: bin/nodemon.js
+  checksum: b6e84f8aefc5d260a2e96508b8e696d79d5d10b97c9b033e672fb674cda2df5108df06688dcc63a0a4253492594aa036879f0e9098db903f78a0234b211f30bc
   languageName: node
   linkType: hard
 
