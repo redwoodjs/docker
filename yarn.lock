@@ -12072,7 +12072,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.20.7
     "@babel/preset-env": 7.20.2
-    nodemon: 2.0.21
+    nodemon: 2.0.22
   languageName: unknown
   linkType: soft
 
@@ -17586,9 +17586,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemon@npm:2.0.21":
-  version: 2.0.21
-  resolution: "nodemon@npm:2.0.21"
+"nodemon@npm:2.0.22":
+  version: 2.0.22
+  resolution: "nodemon@npm:2.0.22"
   dependencies:
     chokidar: ^3.5.2
     debug: ^3.2.7
@@ -17602,7 +17602,7 @@ __metadata:
     undefsafe: ^2.0.5
   bin:
     nodemon: bin/nodemon.js
-  checksum: b6e84f8aefc5d260a2e96508b8e696d79d5d10b97c9b033e672fb674cda2df5108df06688dcc63a0a4253492594aa036879f0e9098db903f78a0234b211f30bc
+  checksum: 37e960b995b66e6d9e3b0e435ecc07a45200c4c566c4820a4deb6e7cc234b305e076a8ff0b4dc9c01ee690c663ae82a217d60c591dcbbcd4af1e3a7d0ad2b2c6
   languageName: node
   linkType: hard
 
