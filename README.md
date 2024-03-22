@@ -2,7 +2,7 @@
 
 > :warning: This repository has been deprecated and archived in favor of the [official support in RedwoodJS](https://redwoodjs.com/docs/docker). Thanks to everyone that contributed to this repository, and to everyone that worked on bringing offical support.
 
-This is a collaboration repository to consolidate efforts on making a sweet Docker implementations for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291) and [Define official Docker images](https://github.com/redwoodjs/docker/issues/16). This repository is currently up to date with Redwood version `3.8.0`.
+This is a collaboration repository to consolidate efforts on making sweet Docker implementations for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291) and [Define official Docker images](https://github.com/redwoodjs/docker/issues/16). This repository is currently up to date with Redwood version `3.8.0`.
 
 ## Implementations
 
