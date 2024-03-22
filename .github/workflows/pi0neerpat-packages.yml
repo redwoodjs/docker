@@ -4,8 +4,6 @@ on:
   push:
     # Only run on these branches
     branches:
-      - main
-      - ci/**
       - pi0neerpat-packages
 
     paths:

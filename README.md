@@ -1,5 +1,7 @@
 # Redwood on Docker
 
+> :warning: This repository has been deprecated and archived in favor of the [official support in RedwoodJS](https://redwoodjs.com/docs/docker). Thanks to everyone that contributed to this repository, and to everyone that worked on bringing offical support.
+
 This is a collaboration repository to consolidate efforts on making sweet Docker implementations for RedwoodJS. Discussion on [Dockerize RedwoodJS](https://community.redwoodjs.com/t/dockerize-redwoodjs/2291) and [Define official Docker images](https://github.com/redwoodjs/docker/issues/16). This repository is currently up to date with Redwood version `3.8.0`.
 
 ## Implementations
@@ -21,47 +23,6 @@ This is a collaboration repository to consolidate efforts on making sweet Docker
 | Workflow | [![jeliasson-nginx](https://github.com/redwoodjs/docker/actions/workflows/jeliasson-nginx.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/jeliasson-nginx.yml) |
 | Maintainer | [Johan Eliasson](https://github.com/jeliasson) |
 
-**Packages**
-
-| Name | Runtime          |
-| ---- | ---------------- |
-| api  | `rw-api-server`  |
-| web  | `node:14-alpine` |
-
-**Benchmark**
-
-Benchmark on running averages
-
-| Package | Build time | Image size |
-| ------- | ---------- | ---------- |
-| api     | `~2m 18s`  | `617MB`    |
-| web     | `~1m 24s`  | `142MB`    |
-
-**Suitable for**
-
-| Scenario                    | Development | Production |
-| --------------------------- | ----------- | ---------- |
-| Basic installation          | ❌          | ❌         |
-| Preferably w/ LB/proxy      | ❌          | ✅         |
-| High Availability           | ❌          | ✅         |
-| Separation of concern       | ❌          | ✅         |
-| Handles db migration & seed | ❌          | ❌         |
-| ...                         |             |            |
-
-**Test**
-
-```bash
-# Api
-docker run -it --rm \
-      -p 8911:8911 \
-      ghcr.io/redwoodjs/docker-jeliasson-nginx-api-dev:latest
-
-# Web
-docker run -it --rm \
-      -p 8910:8910 \
-      ghcr.io/redwoodjs/docker-jeliasson-nginx-web-dev:latest
-```
-
 ### `standal-ce-nginx`
 
 **Meta**
@@ -72,46 +33,6 @@ docker run -it --rm \
 | Workflow | [![standal-ce-nginx](https://github.com/redwoodjs/docker/actions/workflows/standal-ce-nginx.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/standal-ce-nginx.yml) |
 | Maintainer | [Ryan Lockard](https://github.com/realStandal) |
 
-**Packages**
-| Name | Runtime |
-| ---- | --------------------- |
-| api | `rw-api-server` |
-| web | `nginx:1.21.3-alpine` |
-
-**Benchmark**
-
-Benchmark on running averages
-
-| Package | Build time | Image size |
-| ------- | ---------- | ---------- |
-| api     | `~2m 57s`  | `410MB`    |
-| web     | `~2m 5s`   | `25.3M`    |
-
-**Suitable for**
-
-| Scenario                    | Development | Production |
-| --------------------------- | ----------- | ---------- |
-| Basic installation          | ❌          | ❌         |
-| Preferably w/ LB/proxy      | ❌          | ✅         |
-| High Availability           | ❌          | ✅         |
-| Separation of concern       | ❌          | ✅         |
-| Handles db migration & seed | ❌          | ❌         |
-| ...                         |             |            |
-
-**Test**
-
-```bash
-# Api
-docker run -it --rm \
-      -p 8911:8911 \
-      ghcr.io/redwoodjs/docker-standal-ce-nginx-api-dev:latest
-
-# Web
-docker run -it --rm \
-      -p 8910:8910 \
-      ghcr.io/redwoodjs/docker-standal-ce-nginx-web-dev:latest
-```
-
 ### `standal-cli-both`
 
 **Meta**
@@ -121,41 +42,6 @@ docker run -it --rm \
 | Description | Builds and serves both sides from a single image, using [Redwood's CLI](https://redwoodjs.com/docs/cli-commands.html#serve). |
 | Workflow | [![standal-cli-both](https://github.com/redwoodjs/docker/actions/workflows/standal-cli-both.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/standal-cli-both.yml) |
 | Maintainer | [Ryan Lockard](https://github.com/realStandal) |
-
-**Packages**
-
-| Name | Runtime    |
-| ---- | ---------- |
-| both | `rw serve` |
-
-**Benchmark**
-
-Benchmark on running averages
-
-| Package | Build time | Image size |
-| ------- | ---------- | ---------- |
-| both    | `~3m 33s`  | `tbd`      |
-
-**Suitable for**
-
-| Scenario                    | Development | Production |
-| --------------------------- | ----------- | ---------- |
-| Basic installation          | ✅          | ✅         |
-| Preferably w/ LB/proxy      | ❌          | ❌         |
-| High Availability           | ❌          | ❌         |
-| Separation of concern       | ❌          | ❌         |
-| Handles db migration & seed | ❌          | ❌         |
-| ...                         |             |            |
-
-**Test**
-
-```bash
-docker run \
-t \
-rm \
-      -p 8910:8910 \
-      ghcr.io/redwoodjs/docker-standal-cli-both-dev:latest
-```
 
 ### pi0neerpat-packages
 
@@ -168,28 +54,6 @@ NOTE: not everything can be run here. Instead see: https://github.com/pi0neerpat
 | Description | Similar to `jeliasson-nginx`, but supports 📦 local packages |
 | Workflow | [![pi0neerpat-packages](https://github.com/redwoodjs/docker/actions/workflows/pi0neerpat-packages.yml/badge.svg)](https://github.com/redwoodjs/docker/actions/workflows/pi0neerpat-packages.yml) |
 | Maintainer | [Patrick](https://github.com/pi0neerpt) |
-
-**Packages**
-| Name | Runtime |
-| ---- | --------------- |
-| api | `rw-api-server` |
-| web | `nginx` |
-
-**Benchmark**
-
-Similar to [`jeliasson-nginx`](#jeliasson-nginx)
-
-**Suitable for**
-
-| Scenario                    | Development | Production |
-| --------------------------- | ----------- | ---------- |
-| Basic installation          | ❌          | ❌         |
-| Preferably w/ LB/proxy      | ❌          | ✅         |
-| High Availability           | ❌          | ✅         |
-| Separation of concern       | ❌          | ✅         |
-| Handles db migration & seed | ❌          | ✅         |
-| Supports local packages     | ❌          | ✅         |
-| ...                         |             |            |
 
 ## Contribution
 
